@@ -1,0 +1,27 @@
+package org.logistica.config.database;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
+
+public class ConnectionFactory {
+    public static Connection getConnection() throws SQLException {
+        Properties properties = new Properties();
+        try (InputStream input =
+            ConnectionFactory.class.getClassLoader()
+            .getResourceAsStream("application.properties")
+        ){
+            properties.load(input);
+        }
+        catch (IOException e) {
+            System.out.println("Erro ao tentar extrair arquivo properties");
+        }
+
+        return DriverManager.getConnection(properties.getProperty("db.url"),
+                                            properties.getProperty("db.user"),
+                                            properties.getProperty("db.password"));
+    } 
+}
