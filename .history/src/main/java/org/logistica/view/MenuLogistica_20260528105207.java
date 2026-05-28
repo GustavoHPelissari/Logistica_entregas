@@ -234,14 +234,14 @@ public class MenuLogistica {
         System.out.println("------------------------------------------------------------");
 
         Pedido pedido = new Pedido(id, 
-            LocalDate.now(), 
+            LocalDate., 
             volume, 
             peso, 
             StatusPedido.PENDENTE);
 
         
         try {
-            pedidoService.criarPedido(pedido);
+
         } catch(Exception e) {
             System.out.println("\n\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
             System.out.println("[ERRO] ► "+ e.getMessage());

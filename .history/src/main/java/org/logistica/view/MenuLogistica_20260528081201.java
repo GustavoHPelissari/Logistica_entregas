@@ -1,13 +1,10 @@
 package org.logistica.view;
 
 import java.lang.reflect.Array;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import org.logistica.enums.StatusEntrega;
-import org.logistica.enums.StatusPedido;
 import org.logistica.model.Cliente;
 import org.logistica.model.Entrega;
 import org.logistica.model.HistoricoEntrega;
@@ -15,14 +12,12 @@ import org.logistica.model.Motorista;
 import org.logistica.model.Pedido;
 import org.logistica.service.ClienteService;
 import org.logistica.service.MotoristaService;
-import org.logistica.service.PedidoService;
 
 public class MenuLogistica {
 
     public static Scanner sc = new Scanner(System.in);
     public static ClienteService clienteService = new ClienteService();
     public static MotoristaService motoristaService = new MotoristaService();
-    public static PedidoService pedidoService = new PedidoService();
 
     public static void main(String[] args) {
         boolean encessarSessao = false;
@@ -233,20 +228,6 @@ public class MenuLogistica {
         sc.nextLine();
         System.out.println("------------------------------------------------------------");
 
-        Pedido pedido = new Pedido(id, 
-            LocalDate.now(), 
-            volume, 
-            peso, 
-            StatusPedido.PENDENTE);
-
-        
-        try {
-            pedidoService.criarPedido(pedido);
-        } catch(Exception e) {
-            System.out.println("\n\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-            System.out.println("[ERRO] ► "+ e.getMessage());
-            System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-        }
     }
 
     private static void exibirLista(List<?> lista) {
@@ -322,24 +303,5 @@ public class MenuLogistica {
         }
     }
 
-    private static void exibirEnums(Integer index){
-        if (index == 1) {
-            System.out.println("\n\n============================================================");
-            System.out.println("                      📊📊 STATUS PEDIDO 📊📊");
-            System.out.println("============================================================");
-            for(StatusPedido status : StatusPedido.values()) {
-                System.out.println("["+status.ordinal()+"] - "+status.name());
-                System.out.println("============================================================");
-            }
-        }
-        if (index == 2) {
-            System.out.println("\n\n============================================================");
-            System.out.println("                      📊📊 STATUS ENTREGA 📊📊");
-            System.out.println("============================================================");
-            for(StatusEntrega status : StatusEntrega.values()) {
-                System.out.println("["+status.ordinal()+"] - "+status.name());
-                System.out.println("============================================================");
-            }
-        }
-    }
+    private static void exibirEnums(Integer)
 }

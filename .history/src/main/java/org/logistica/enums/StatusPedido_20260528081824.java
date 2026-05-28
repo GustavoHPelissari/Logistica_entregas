@@ -30,8 +30,6 @@ public enum StatusPedido {
                 return StatusPedido.ENTREGUE;
             case 3:
                 return StatusPedido.CANCELADO;
-            default:
-                return StatusPedido.PENDENTE;
         }
     }
 }

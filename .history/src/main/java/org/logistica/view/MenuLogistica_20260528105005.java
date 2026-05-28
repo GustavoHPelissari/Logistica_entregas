@@ -22,7 +22,7 @@ public class MenuLogistica {
     public static Scanner sc = new Scanner(System.in);
     public static ClienteService clienteService = new ClienteService();
     public static MotoristaService motoristaService = new MotoristaService();
-    public static PedidoService pedidoService = new PedidoService();
+    public static PedidoService pedidoService = new PedidoService()
 
     public static void main(String[] args) {
         boolean encessarSessao = false;
@@ -234,14 +234,14 @@ public class MenuLogistica {
         System.out.println("------------------------------------------------------------");
 
         Pedido pedido = new Pedido(id, 
-            LocalDate.now(), 
+            LocalDate.now, 
             volume, 
             peso, 
             StatusPedido.PENDENTE);
 
         
         try {
-            pedidoService.criarPedido(pedido);
+
         } catch(Exception e) {
             System.out.println("\n\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
             System.out.println("[ERRO] ► "+ e.getMessage());

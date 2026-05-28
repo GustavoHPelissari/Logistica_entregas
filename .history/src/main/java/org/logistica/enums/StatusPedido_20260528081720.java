@@ -22,16 +22,5 @@ public enum StatusPedido {
         }
     }
 
-    public static StatusPedido extractStatus(Integer index){
-        switch (index){
-            case 1:
-                return StatusPedido.PENDENTE;
-            case 2:
-                return StatusPedido.ENTREGUE;
-            case 3:
-                return StatusPedido.CANCELADO;
-            default:
-                return StatusPedido.PENDENTE;
-        }
-    }
+    public static StatusPedido extractStatus()
 }

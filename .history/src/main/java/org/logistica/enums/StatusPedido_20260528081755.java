@@ -26,12 +26,6 @@ public enum StatusPedido {
         switch (index){
             case 1:
                 return StatusPedido.PENDENTE;
-            case 2:
-                return StatusPedido.ENTREGUE;
-            case 3:
-                return StatusPedido.CANCELADO;
-            default:
-                return StatusPedido.PENDENTE;
         }
     }
 }

@@ -241,7 +241,7 @@ public class MenuLogistica {
 
         
         try {
-            pedidoService.criarPedido(pedido);
+
         } catch(Exception e) {
             System.out.println("\n\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
             System.out.println("[ERRO] ► "+ e.getMessage());
