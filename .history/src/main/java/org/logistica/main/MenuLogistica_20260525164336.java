@@ -1,0 +1,44 @@
+package org.logistica.main;
+
+import java.util.Scanner;
+
+public class MenuLogistica {
+
+    public static Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        boolean encessarSessao = false;
+
+        while (!encessarSessao) {
+            exibirMenu();
+
+            System.out.print("[Digite sua opção]: ");
+            int option = sc.nextInt();
+            sc.ne
+        }
+    }
+    
+    private static void exibirMenu() {
+        System.out.println("=-<>-==-<>-==-<>-==-<>-==-<>-==-<>-==-<>-==-<>-==-<>-==-<>-=");
+        System.out.println("          CENTRO DE LOGISTIA DE ENTREGAS B'ACK-E'ND ");
+        System.out.println("=-<>-==-<>-==-<>-==-<>-==-<>-==-<>-==-<>-==-<>-==-<>-==-<>-=");
+        System.out.println("[1]  - Cadastrar Cliente");
+        System.out.println("[2]  - Cadastrar Motorista");
+        System.out.println("[3]  - Criar Pedido");
+        System.out.println("[4]  - Atribuir Pedido a Motorista");
+        System.out.println("[5]  - Registrar Evento de Entrega");
+        System.out.println("[6]  - Atualizar Status da Entrega");
+        System.out.println("[7]  - Listar Todas as Entregas com Cliente e Motorista");
+        System.out.println("[8]  - [Relatório]: Total de Entregas por Motorista");
+        System.out.println("[9]  - [Relatório]: Clientes com Maior Volume Entregue");
+        System.out.println("[10] - [Relatório]: Pedidos Pendentes por Estado");
+        System.out.println("[11] - [Relatório]: Entregas Atrasadas por Cidade");
+        System.out.println("[12] - Buscar Pedido por CPF/CNPJ do Cliente");
+        System.out.println("[13] - Cancelar Pedido");
+        System.out.println("[14] - Excluir Entrega");
+        System.out.println("[15] - Excluir Cliente");
+        System.out.println("[16] - Excluir Motorista");
+        System.out.println("[0]  - Sair");
+        System.out.println("=-<>-==-<>-==-<>-==-<>-==-<>-==-<>-==-<>-==-<>-==-<>-==-<>-=");
+    }
+}
