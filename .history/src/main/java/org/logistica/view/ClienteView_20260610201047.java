@@ -1,0 +1,49 @@
+package org.logistica.view;
+
+import org.logistica.model.Cliente;
+
+public class ClienteView {
+
+    private Cliente
+    public void cadastrar(){
+        System.out.println("\n\n------------------------------------------------------------");
+        System.out.println("• Digite o nome do cliente: ");
+        String nome = sc.next();
+        System.out.println("------------------------------------------------------------");
+
+        System.out.println("\n\n------------------------------------------------------------");
+        System.out.println("• Digite o cpf/cnpj do cliente (apenas dígitos) : ");
+        String cpf = sc.next();
+        System.out.println("------------------------------------------------------------");
+
+        System.out.println("\n\n------------------------------------------------------------");
+        System.out.println("• Digite o endereço do cliente: ");
+        String endereco = sc.next();
+        System.out.println("------------------------------------------------------------");
+
+        System.out.println("\n\n------------------------------------------------------------");
+        System.out.println("• Digite a cidade do cliente: ");
+        String cidade = sc.next();
+        System.out.println("------------------------------------------------------------");
+
+        System.out.println("\n\n------------------------------------------------------------");
+        System.out.println("• Digite o estado do cliente: ");
+        String estado = sc.next();
+        System.out.println("------------------------------------------------------------");
+
+        Cliente cliente = new Cliente(nome, 
+            cpf, 
+            endereco, 
+            cidade, 
+            estado);
+    
+        try {
+            clienteService.criarCliente(cliente);
+        }
+        catch(Exception e) {
+            System.out.println("\n\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+            System.out.println("[ERRO] ► "+ e.getMessage());
+            System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+        }
+    }
+}

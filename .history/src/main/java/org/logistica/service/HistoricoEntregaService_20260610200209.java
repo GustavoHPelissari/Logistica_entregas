@@ -1,0 +1,51 @@
+package org.logistica.service;
+
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.logistica.model.HistoricoEntrega;
+import org.logistica.repository.HistoricoEntregaRepository;
+
+public class HistoricoEntregaService {
+    private HistoricoEntregaRepository historicoEntregaRepository;
+
+    public HistoricoEntregaService(){
+        this.historicoEntregaRepository = new HistoricoEntregaRepository();
+    }
+
+     public void criarHistoricoEntrega(HistoricoEntrega historicoEntrega){
+        if (historicoEntrega == null) {
+            throw new RuntimeException("Entrega não pode ser nula");
+        }
+
+        if (historicoEntrega.getEntregaId() == null || historicoEntrega.getEntregaId() <= 0) {
+            throw new RuntimeException("Id da entrega não pode ser nulo");
+        }
+
+        if (historicoEntrega.getDescricao() == null || historicoEntrega.getDescricao().isEmpty()) {
+            throw new RuntimeException("Descrição do evento não pode ser vazia");
+        }
+
+        if (historicoEntrega.getDataEvento() == null) {
+            historicoEntrega.setDataEvento(LocalDate.now());
+        }
+
+        try{
+            historicoEntregaRepository.store(historicoEntrega);
+        } catch(SQLException e){
+            throw new RuntimeException("Erro ao criar histórico de entrega: "+e.getStackTrace());
+        }
+    }
+
+    public List<HistoricoEntrega> listarHistoricoEntregas(){
+        List<HistoricoEntrega> historicoEntregas = new ArrayList<>();
+        try{
+            historicoEntregas =  historicoEntregaRepository.findAll();
+        } catch(SQLException e){
+            
+        }
+        return historicoEntregas;
+    }
+}
